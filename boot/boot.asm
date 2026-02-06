@@ -16,12 +16,12 @@ gdt_end:
 gdt_descriptor:
     dw gdt_end - gdt_start - 1
     dd gdt_start
-
-lgdt [gdt_descriptor]
-mov eax, cr0
-or eax, 1
-mov cr0, eax
-jmp 0x08:pm_label
+_start:
+    lgdt [gdt_descriptor]
+    mov eax, cr0
+    or eax, 1
+    mov cr0, eax
+    jmp 0x08:pm_label
 bits 32
 pm_label:
     mov eax, cr4
