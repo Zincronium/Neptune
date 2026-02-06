@@ -1,4 +1,6 @@
 BITS 32
+extern page
+extern kentry
 _start:
     ; Reload custom GDT
     lgdt [gdt_descriptor]
